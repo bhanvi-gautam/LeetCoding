@@ -1,0 +1,32 @@
+class Solution {
+public:
+    bool isMajortity(vector<int>& nums,int x){
+        int count=0;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]==x){
+                count++;
+            }
+        }
+        if(count>nums.size()/2)
+            return 1;
+        else
+            return 0;
+    }
+    int majorityElement(vector<int>& nums) {
+      int maj_index=0,count=0;
+        for(int i=0;i<nums.size();i++){
+            if(nums[maj_index]==nums[i])
+                count++;
+            else
+                count--;
+            if(count==0){
+                maj_index=i;
+                count=1;
+            }
+        }
+        if(isMajortity(nums,nums[maj_index]))
+            return nums[maj_index];
+        else
+            return NULL;
+    }
+};
