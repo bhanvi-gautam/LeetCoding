@@ -1,0 +1,22 @@
+class Solution {
+public:
+    uint32_t reverseBits(uint32_t n) {
+        unsigned int result=0;
+       for(int i=0;i<32;i++){
+          //bitwise left shift
+            result<<=1;
+            //suppose we have 1000000100110010
+            //therefore we will check for the last bit for 'n & 1' ,ie, 0 & 1=0
+            //if the answer is zero we will just shift our result to right
+            //if the answer is one ,ie 1 & 1=1, we will increase the result by one and then right shift it
+           if (n & 1)
+            result++;
+         
+        // bitwise right shift
+        n >>= 1;
+             
+    }
+    return result; 
+        }
+    
+};
