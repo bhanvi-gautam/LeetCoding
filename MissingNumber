@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        //for xor of all elements in the array
+        int x1=nums[0];
+        //for xor of all the elements from 1 to n+1
+        int x2=1;
+        
+        for(int i=1;i<nums.size();i++){
+            x1=x1^nums[i];
+        }
+        for(int i=2;i<nums.size()+1;i++){
+            x2=x2^i;
+        }
+        return (x1^x2);
+    }
+};
