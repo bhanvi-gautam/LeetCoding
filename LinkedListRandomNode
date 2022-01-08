@@ -1,0 +1,17 @@
+class Solution {
+public:
+    vector<int> res;
+    Solution(ListNode* head) {
+      while(head){// Storing all the values by iterating over the LinkedList
+          res.push_back(head->val);
+          head=head->next;
+      }  
+    }
+    
+    int getRandom() {
+        //rand() will generate a random number b/w 0 & RAND_MAX
+        //then take modulo of LinkedList size with Array size. So, the range become 0 to n - 1
+        //why we doing that as we have to return array value
+       return res[rand()%res.size()]; 
+    }
+};
