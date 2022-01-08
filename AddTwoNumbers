@@ -1,0 +1,27 @@
+ ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+       ListNode* ans=new ListNode();
+        int rem=0;
+        ListNode* cur=ans;
+        
+        while(l1 || l2){
+            int tmp=0;
+            if(l1){
+                tmp +=(l1->val);
+                l1=l1->next;
+                
+            }
+            if(l2){
+                tmp += (l2->val);
+                    l2= l2->next;
+                
+            }
+            tmp += rem;
+                rem = tmp/10;
+                cur->next = new ListNode(tmp%10);
+                cur = cur->next;
+        }
+        if(rem){
+            cur->next = new ListNode(rem);
+        }
+        return ans->next;
+    }
